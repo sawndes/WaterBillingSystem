@@ -106,7 +106,7 @@ public class MeterReaderManager extends JFrame implements ActionListener {
 				String location = t5.getText();
 //				String q = "INSERT INTO `login`(`user_id`,`name`,`username`, `pass`, `Role`) VALUES ('"+user_id+"','"+name+"','"+username+"','"+password+"','Meter Reader')";
 				String q = "INSERT INTO `login`(`name`,`username`, `pass`, `Role`) VALUES ('"+name+"','"+username+"','"+password+"','Meter Reader')";
-				String s = "INSERT INTO `meter_reader`(`user_id`,`name`, `location`) VALUES ('"+uid+"','"+name+"','"+location+"')";
+				String s = "INSERT INTO `meter_reader`(`user_id`,`username`,`name`, `location`) VALUES ('"+uid+"','"+username+"','"+name+"','"+location+"')";
 				c1.s.executeUpdate(q);
 				c1.s.executeUpdate(s);
 				 JOptionPane.showMessageDialog(null, "Meter Reader Added Successfully");

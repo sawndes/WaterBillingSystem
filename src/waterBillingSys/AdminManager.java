@@ -102,7 +102,7 @@ public class AdminManager extends JFrame implements ActionListener {
 //				String q = "INSERT INTO `login`(`user_id`,`name`,`username`, `pass`, `Role`) VALUES ('"+user_id+"','"+name+"','"+username+"','"+password+"','Admin')";
 				String q = "INSERT INTO `login`(`name`,`username`, `pass`, `Role`) VALUES ('"+name+"','"+username+"','"+password+"','Admin')";
 //				String p = "SELECT `user_id` FROM `login` ORDER BY user_id DESC LIMIT 1";
-				String s = "INSERT INTO `admin`(`user_id`,`name`) VALUES ('"+uid+"','"+name+"')";
+				String s = "INSERT INTO `admin`(`user_id`,`username`,`name`) VALUES ('"+uid+"','"+username+"','"+name+"')";
 				c1.s.executeUpdate(q);
 
 				c1.s.executeUpdate(s);

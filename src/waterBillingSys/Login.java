@@ -82,7 +82,7 @@ public class Login extends JFrame implements ActionListener{
 //                	 String q = "select * from login where username='" + u + "' and pass='" + v + "'";
                      ResultSet rs = c1.s.executeQuery(q);
                      if (rs.next()) {
-
+                    	 
                              this.dispose();
                              new SuperAdminPanel().setVisible(true);
                              System.out.println("Sucessful");  
@@ -98,7 +98,7 @@ public class Login extends JFrame implements ActionListener{
                 	 String q = "select * from login where username='" + u + "' and pass='" + v + "'and role = '"+ "Admin" +"'";
                      ResultSet rs = c1.s.executeQuery(q);
                      if (rs.next()) {
-
+                    	 c1.s.execute("INSERT INTO `logincheck`(`username`, `role`) VALUES ('"+u+"','"+cb.getSelectedItem()+"')");
                              this.dispose();
                              new AdminPanel().setVisible(true);
                              System.out.println("Sucessful");  
@@ -114,7 +114,7 @@ public class Login extends JFrame implements ActionListener{
                 	 String q = "select * from login where username='" + u + "' and pass='" + v + "' and role = '"+ "Meter Reader" + "'";
                      ResultSet rs = c1.s.executeQuery(q);
                      if (rs.next()) {
-
+                    	 c1.s.execute("INSERT INTO `logincheck`(`username`, `role`) VALUES ('"+u+"','"+cb.getSelectedItem()+"')");
                              this.dispose();
                              new MeterReaderPanel().setVisible(true);
                              System.out.println("Sucessful");  

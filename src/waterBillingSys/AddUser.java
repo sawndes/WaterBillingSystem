@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JButton;
@@ -18,6 +19,7 @@ public class AddUser extends JFrame implements ActionListener {
 	private JLabel l1, l,l2,l3;
     private JTextField t1,t2,t3;
     private JButton b1;
+    private int idd;
 	AddUser() {
 	  super("Add Consumer");
 	  
@@ -55,6 +57,37 @@ public class AddUser extends JFrame implements ActionListener {
       b1.setBounds(250, 380, 115 ,30);
       add(b1);
       b1.addActionListener(this);
+      
+      
+      Connect c1;
+	try {
+		c1 = new Connect();
+	      String p = "SELECT `user_id` FROM `login` ORDER BY user_id DESC LIMIT 1";
+			ResultSet rs= c1.s.executeQuery(p);
+            while(rs.next()){
+            	idd = rs.getInt("user_id");
+            }
+			System.out.println(idd);
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+//    Connect c2;
+//	try {
+//		c2 = new Connect();
+//	      String p = "SELECT `user_id` FROM `login` ORDER BY user_id DESC LIMIT 1";
+//			ResultSet rs= c2.s.executeQuery(p);
+//          while(rs.next()){
+//          	idd = rs.getInt("user_id");
+//          }
+//			System.out.println(idd);
+//	} catch (SQLException e) {
+//		// TODO Auto-generated catch block
+//		e.printStackTrace();
+//	}
+      
+      
       setResizable(false);
 	  setSize(600,500);  
 	  setLayout(null);  
@@ -66,6 +99,7 @@ public class AddUser extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource()== b1){
             try {
+            	int uid = idd+1;
                 Connect c1 = new Connect();
                 String name = t1.getText();
                 String username = t2.getText();
@@ -73,7 +107,11 @@ public class AddUser extends JFrame implements ActionListener {
                 String a = "Insert into clients(name,username,address)  values('"+name+"', '"+username+"', '"+address+"')";
                 c1.s.executeUpdate(a);
             } catch (SQLException ex) {
-                ex.printStackTrace();
+            	JOptionPane.showMessageDialog(null, ex);
+	             setVisible(false);
+//	             this.dispose();
+//	             new SuperAdminPanel().setVisible(true);
+                ex.printStackTrace(); 
             }
 		 }
         JOptionPane.showMessageDialog(null, "Client Added Successfully");

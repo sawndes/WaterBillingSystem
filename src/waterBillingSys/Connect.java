@@ -24,7 +24,7 @@ public class Connect{
      s = c.createStatement();
      // Create Required Table
 //     s.executeUpdate("Create Table if not exists Admin(Uname varchar(50),pass varchar(150))");
-     s.executeUpdate("Create Table if not exists Login(user_id int(100) AUTO_INCREMENT,name varchar(200),username varchar(150),pass varchar(150),Role varchar(50),PRIMARY KEY(user_id))");
+     s.executeUpdate("Create Table if not exists Login(user_id int(100) AUTO_INCREMENT,name varchar(200),username varchar(150) UNIQUE,pass varchar(150),Role varchar(50),PRIMARY KEY(user_id))");
      ResultSet rs = s.executeQuery("SELECT * FROM Login WHERE username!='"+"' ");
 //     ResultSetMetaData rsmetadata = rs.getMetaData();
      if (!rs.next()) {
@@ -32,9 +32,10 @@ public class Connect{
          s.executeUpdate("INSERT INTO Login(user_id,name,username, pass, Role) VALUES(1,'Super','sadmin','admin','Super Admin')");
      }
   // Create table
-     s.executeUpdate("Create Table if not exists clients(user_id int(100) AUTO_INCREMENT, name varchar(50),username varchar(50), address varchar(200),Unit_Consumed int(100),Rate int(100),Month varchar(100),Year int(100),PRIMARY KEY(user_id))");
-     s.executeUpdate("Create Table if not exists meter_reader(user_id int(100) AUTO_INCREMENT, name varchar(200),location varchar(150), FOREIGN KEY (user_id) REFERENCES Login(user_id))");
-     s.executeUpdate("Create Table if not exists admin(user_id int(100) AUTO_INCREMENT, name varchar(200), FOREIGN KEY (user_id) REFERENCES Login(user_id))");
+     s.executeUpdate("Create Table if not exists meter_reader(user_id int(100) AUTO_INCREMENT, name varchar(200),username varchar(150),location varchar(150),PRIMARY KEY(user_id), FOREIGN KEY (user_id) REFERENCES Login(user_id))");
+     s.executeUpdate("Create Table if not exists clients(client_id int(100) AUTO_INCREMENT, name varchar(50),username varchar(150), address varchar(200),Unit_Consumed int(100),Rate int(100),Month varchar(100),Year int(100),Read_by int(100),PRIMARY KEY(client_id))");
+     s.executeUpdate("Create Table if not exists admin(user_id int(100) AUTO_INCREMENT, name varchar(200),username varchar(150), FOREIGN KEY (user_id) REFERENCES Login(user_id))");
+     s.executeUpdate("Create Table if not exists LoginCheck(No int NOT NULL AUTO_INCREMENT,username varchar(150), role varchar(200),PRIMARY KEY (No))");
 //     s.executeUpdate("Create Table if not exists admin(user_id int(100) AUTO_INCREMENT, name varchar(200), FOREIGN KEY (user_id) REFERENCES Login(user_id))");     
  }
 
