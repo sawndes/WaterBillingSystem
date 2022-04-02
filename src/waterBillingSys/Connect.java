@@ -33,7 +33,7 @@ public class Connect{
      }
   // Create table
      s.executeUpdate("Create Table if not exists meter_reader(user_id int(100) AUTO_INCREMENT, name varchar(200),username varchar(150),location varchar(150),PRIMARY KEY(user_id), FOREIGN KEY (user_id) REFERENCES Login(user_id))");
-     s.executeUpdate("Create Table if not exists clients(client_id int(100) AUTO_INCREMENT, name varchar(50),username varchar(150), address varchar(200),Unit_Consumed int(100),Rate int(100),Month varchar(100),Year int(100),Read_by int(100),PRIMARY KEY(client_id))");
+     s.executeUpdate("Create Table if not exists clients(client_id int(100), name varchar(50),username varchar(150), address varchar(200),Unit_Consumed float(20,2),Rate float(20,2),Month varchar(100),Year int(100),Read_by varchar(200),Paid_Amount float(50,2))");
      s.executeUpdate("Create Table if not exists admin(user_id int(100) AUTO_INCREMENT, name varchar(200),username varchar(150), FOREIGN KEY (user_id) REFERENCES Login(user_id))");
      s.executeUpdate("Create Table if not exists LoginCheck(No int NOT NULL AUTO_INCREMENT,username varchar(150), role varchar(200),PRIMARY KEY (No))");
 //     s.executeUpdate("Create Table if not exists admin(user_id int(100) AUTO_INCREMENT, name varchar(200), FOREIGN KEY (user_id) REFERENCES Login(user_id))");     

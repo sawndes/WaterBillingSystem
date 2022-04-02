@@ -24,7 +24,7 @@ public class ViewConsumers extends JFrame implements ActionListener{
 		
 		try {
 			Connect c1 = new Connect();
-			String s1 = "select * from clients";
+			String s1 = "select DISTINCT name, username, address from clients";
 			ResultSet rs = c1.s.executeQuery(s1);
 			while (rs.next()) {
 				y[i][j++]=rs.getString("name");

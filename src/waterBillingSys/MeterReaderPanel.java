@@ -18,7 +18,8 @@ import javax.swing.JMenuItem;
 
 public class MeterReaderPanel extends JFrame implements ActionListener {
 	private JButton b,b1,b2;
-	private String username,mrlocation;
+	private String mrlocation;
+	public static String mrusername;
 	MeterReaderPanel() {
 		// GUI 
 		  super("Meter Reader Dashboard");
@@ -44,7 +45,7 @@ public class MeterReaderPanel extends JFrame implements ActionListener {
 	            String s2 = "SELECT * FROM logincheck ORDER BY No DESC LIMIT 1";
 	            ResultSet rs1  = c3.s.executeQuery(s2);
 	            while(rs1.next()){
-	            	username = rs1.getString("username");
+	            	mrusername = rs1.getString("username");
 	            }
 	        }catch (Exception e) {
 	        	e.printStackTrace();
@@ -52,7 +53,7 @@ public class MeterReaderPanel extends JFrame implements ActionListener {
 	        
 	        try {
 	        	Connect c3 = new Connect();
-	            String s2 = "SELECT location FROM meter_reader where username= '"+username+"'";
+	            String s2 = "SELECT location FROM meter_reader where username= '"+mrusername+"'";
 	            ResultSet rs1  = c3.s.executeQuery(s2);
 	            while(rs1.next()){
 	            	mrlocation = rs1.getString("location");
@@ -70,8 +71,8 @@ public class MeterReaderPanel extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == b2) {
-			new SelectCustomer(mrlocation).setVisible(true);
-	    	this.dispose();
+			new SelectCustomer(mrlocation,mrusername).setVisible(true);
+//	    	this.dispose();
 		}
 		
 	}
