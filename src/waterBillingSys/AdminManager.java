@@ -15,10 +15,6 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-
-
-
-
 public class AdminManager extends JFrame implements ActionListener {
 	private JLabel l1,l3,l2, l4;
 	private JTextField t1,t2,t3,t4;
