@@ -83,7 +83,7 @@ public class SelectCustomer extends JFrame implements ActionListener {
 			Connect c1 = new Connect();
 	         for (int i=0; i<12;i++){
 	        	 for (int j =0;j<2;j++) {
-	        		 if (months[i]=="Jan" && years[j] == "2022") {
+	        		 if ((months[i]=="Jan" && years[j] == "2022") || (months[i]=="Jan" && years[j] == "2023")) {
 	        			 continue;
 	        		 }
 	        		 else {
