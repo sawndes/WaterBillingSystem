@@ -73,7 +73,7 @@ public class MeterReaderManager extends JFrame implements ActionListener {
 	      b1.addActionListener(this);
 	      add(b1);
 	      
-	      Connect c1;
+	    Connect c1;
 		try {
 			c1 = new Connect();
 		      String p = "SELECT `user_id` FROM `login` ORDER BY user_id DESC LIMIT 1";

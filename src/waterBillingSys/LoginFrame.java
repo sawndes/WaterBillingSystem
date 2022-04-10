@@ -197,7 +197,7 @@ public class LoginFrame extends JFrame {
 	                     ResultSet rs = c1.s.executeQuery(q);
 	                     if (rs.next()) {
 	                    	 LoginFrame.this.dispose();
-	                             new SuperAdminPanel().setVisible(true);
+	                             new SuperAdminFrame().setVisible(true);
 	                             System.out.println("Sucessful");  
 
 	                         
