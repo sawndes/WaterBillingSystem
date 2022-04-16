@@ -30,13 +30,14 @@ public class AddUnit extends JFrame implements ActionListener {
 			String s1 = "select * from clients where client_id = '"+uid+"'";
 			ResultSet rs = c1.s.executeQuery(s1);
 			while (rs.next()) {
-				clientId = rs.getInt("client_id");
+//				clientId = rs.getInt("client_id");
 				name = rs.getString("name");
 				username = rs.getString("username");
 			}
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
+		clientId = uid;
 		meterReaderusername = mrusername;
 		
 		l1 = new JLabel("Enter Consumed Unit of " +name+ ":");
@@ -94,6 +95,7 @@ public class AddUnit extends JFrame implements ActionListener {
 		         c1.s.executeUpdate(q);
                  JOptionPane.showMessageDialog(null, "Unit Added Sucessfully");
                  System.out.println("Sucessful");
+                 System.out.println(clientId);
                  this.dispose();
                  new MeterReaderPanel().setVisible(true);
                  

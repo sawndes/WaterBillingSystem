@@ -67,9 +67,8 @@ public class SuperAdminPanelViewConsumer extends JPanel {
 			                String a = textField.getText();
 			                String q = "delete from `clients` where username = '"+a+"'";
 			                c1.s.executeUpdate(q);
-			                setVisible(false);
+//			                SuperAdminFrame.this.dispose();
 			                new SuperAdminFrame().setVisible(true);
-			                new ViewConsumers().setVisible(true);
 			            }catch(Exception e2){}
 			        
 				} catch (SQLException e1) {

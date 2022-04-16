@@ -6,12 +6,13 @@ class HelloWorld {
     String years[] = {"2022","2023"};
          for (int i=0; i<12;i++){
         	 for (int j =0;j<2;j++) {
-        		 if (months[i]=="Jan" && years[j] == "2022") {
-        			 continue;
-        		 }
-        		 else {
-        			 System.out.println(months[i]+years[j]);
-        		 }
+        		 System.out.println("xx");
+//        		 if (months[i]=="Jan" && years[j] == "2022") {
+//        			 continue;
+//        		 }
+//        		 else {
+//        			 System.out.println(months[i]+years[j]);
+//        		 }
         		 
         	 }
         }

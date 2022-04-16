@@ -57,10 +57,6 @@ public class PanelManageReader extends JPanel {
 		lblNewLabel_1.setBounds(143, 28, 54, 44);
 		add(lblNewLabel_1);
 		
-		JLabel lblreaderpassword = new JLabel("Password");
-		lblreaderpassword.setBounds(197, 235, 114, 14);
-		add(lblreaderpassword);
-		
 		JLabel lblNewLabel_1_1 = new JLabel("");
 		lblNewLabel_1_1.setIcon(new ImageIcon(PanelManageReader.class.getResource("/res/icons8-pass-fail-48.png")));
 		lblNewLabel_1_1.setBounds(143, 215, 54, 44);
@@ -94,10 +90,15 @@ public class PanelManageReader extends JPanel {
 		lblNewLabel_1_3.setBounds(143, 309, 54, 44);
 		add(lblNewLabel_1_3);
 		
+		JLabel lblreaderpassword = new JLabel("Password");
+		lblreaderpassword.setBounds(197, 235, 114, 14);
+		add(lblreaderpassword);
+		
 		passwordField = new JPasswordField();
 		passwordField.setBounds(143, 264, 283, 44);
 		add(passwordField);
 		setVisible(true);
+		
 		
 		JButton btncreate = new JButton("Create");
 		btncreate.setBounds(143, 422, 283, 29);

@@ -213,7 +213,7 @@ public class LoginFrame extends JFrame {
 	                     if (rs.next()) {
 	                    	 c1.s.execute("INSERT INTO `logincheck`(`username`, `role`) VALUES ('"+u+"','"+comboBox.getSelectedItem()+"')");
 	                    	 LoginFrame.this.dispose();
-	                             new AdminPanel().setVisible(true);
+	                             new AdminFrame().setVisible(true);
 	                             System.out.println("Sucessful");  
 
 	                         
