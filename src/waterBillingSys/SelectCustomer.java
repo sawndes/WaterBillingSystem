@@ -81,21 +81,22 @@ public class SelectCustomer extends JFrame implements ActionListener {
 		int uidd = Integer.parseInt(uid);
 		if(e.getSource() == b1){
 			Connect c1 = new Connect();
-	         for (int i=0; i<12;i++){
-	        	 for (int j =0;j<2;j++) {
-	        		 if ((months[i]=="Jan" && years[j] == "2022") || (months[i]=="Jan" && years[j] == "2023")) {
-	        			 continue;
-	        		 }
-	        		 else {
-	        			 String a = "Insert into clients(client_id,name,username,address,month,year)  values('"+uid+"','"+conname+"', '"+conusername+"', '"+conaddress+"','"+months[i]+"','"+years[j]+"')";
-	         			String b = "Update clients set client_id = '"+uid+"' WHERE name = '"+conname+"' AND username='"+conusername+"'";
-	                     c1.s.executeUpdate(a);
-	                     c1.s.executeUpdate(b);
-//	        			 System.out.println(months[i]+years[j]);
-	        		 }
-	        		 
-	        	 }
-	        }
+//	         for (int i=0; i<12;i++){
+//	        	 for (int j =0;j<2;j++) {
+//	        		 if ((months[i]=="Jan" && years[j] == "2022") || (months[i]=="Jan" && years[j] == "2023")) {
+//	        			 continue;
+//	        		 }
+//	        		 else {
+//	        			 String a = "Insert into clients(client_id,name,username,address,month,year)  values('"+uid+"','"+conname+"', '"+conusername+"', '"+conaddress+"','"+months[i]+"','"+years[j]+"')";
+//	         			String b = "Update clients set client_id = '"+uid+"' WHERE name = '"+conname+"' AND username='"+conusername+"'";
+//	                     c1.s.executeUpdate(a);
+//	                     c1.s.executeUpdate(b);
+////	        			 System.out.println(months[i]+years[j]);
+//	        		 }
+//	        		 
+//	        	 }
+//	        }
+			
 			
 			
 			

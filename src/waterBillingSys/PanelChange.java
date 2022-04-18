@@ -2,9 +2,15 @@ package waterBillingSys;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+
 import javax.swing.ImageIcon;
 
 public class PanelChange extends JPanel {
@@ -62,5 +68,23 @@ public class PanelChange extends JPanel {
 		JButton btnNewButton = new JButton("Chanage");
 		btnNewButton.setBounds(142, 413, 283, 29);
 		add(btnNewButton);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				try {
+					Connect c1 = new Connect();
+					String username = textField.getText();
+					String newpass = passwordField.getText();
+					String oldpass = passwordField_1.getText();
+					String s1 = "UPDATE `login` SET `pass`='"+newpass+"'WHERE `username`='"+username+"' AND `pass`='"+oldpass+"'";
+					c1.s.executeUpdate(s1);
+					JOptionPane.showMessageDialog(null, "Password Changed Sucessfully");
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		});
 	}
 }

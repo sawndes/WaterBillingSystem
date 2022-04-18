@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import java.awt.event.ActionEvent;
@@ -73,7 +74,8 @@ public class PanelAdminCollect extends JPanel {
 				int client_id = Integer.parseInt(inp) -1 ;
 				String username =t1.getModel().getValueAt(client_id, 2).toString();
 				System.out.println(username);
-				new SelectMonthYear(username,client_id).setVisible(true);
+				new SelectMonthYear(username,client_id+1).setVisible(true);
+
 			}
 		});
 

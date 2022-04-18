@@ -18,6 +18,7 @@ public class PanelAdminProfile extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+	String xx = "x";
 	public PanelAdminProfile() {
 		setBounds(0, 0, 565, 480);
 		setLayout(null);
@@ -42,7 +43,7 @@ public class PanelAdminProfile extends JPanel {
 		lblNewLabel_1.setBounds(115, 44, 61, 16);
 		panel.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
+		JLabel lblNewLabel_2 = new JLabel(AdminFrame.name);
 		lblNewLabel_2.setFont(new Font("Arial", Font.BOLD, 18));
 		lblNewLabel_2.setBounds(175, 44, 109, 16);
 		panel.add(lblNewLabel_2);
@@ -52,29 +53,29 @@ public class PanelAdminProfile extends JPanel {
 		lblNewLabel_1_1.setBounds(115, 74, 74, 16);
 		panel.add(lblNewLabel_1_1);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("New label");
+		JLabel lblNewLabel_2_1 = new JLabel(AdminFrame.userid);
 		lblNewLabel_2_1.setFont(new Font("Arial", Font.BOLD, 18));
 		lblNewLabel_2_1.setBounds(185, 72, 109, 16);
 		panel.add(lblNewLabel_2_1);
 		
-		JLabel lblNewLabel_1_2 = new JLabel("Name:");
+		JLabel lblNewLabel_1_2 = new JLabel("Username:");
 		lblNewLabel_1_2.setFont(new Font("Arial", Font.BOLD, 18));
-		lblNewLabel_1_2.setBounds(115, 105, 61, 16);
+		lblNewLabel_1_2.setBounds(115, 105, 100, 16);
 		panel.add(lblNewLabel_1_2);
 		
-		JLabel lblNewLabel_2_2 = new JLabel("New label");
+		JLabel lblNewLabel_2_2 = new JLabel(AdminFrame.username);
 		lblNewLabel_2_2.setFont(new Font("Arial", Font.BOLD, 18));
-		lblNewLabel_2_2.setBounds(175, 105, 109, 16);
+		lblNewLabel_2_2.setBounds(210, 105, 109, 16);
 		panel.add(lblNewLabel_2_2);
 		
-		JLabel lblNewLabel_1_3 = new JLabel("Name:");
-		lblNewLabel_1_3.setFont(new Font("Arial", Font.BOLD, 18));
-		lblNewLabel_1_3.setBounds(115, 133, 61, 16);
-		panel.add(lblNewLabel_1_3);
-		
-		JLabel lblNewLabel_2_3 = new JLabel("New label");
-		lblNewLabel_2_3.setFont(new Font("Arial", Font.BOLD, 18));
-		lblNewLabel_2_3.setBounds(175, 133, 109, 16);
-		panel.add(lblNewLabel_2_3);
+//		JLabel lblNewLabel_1_3 = new JLabel("Name:");
+//		lblNewLabel_1_3.setFont(new Font("Arial", Font.BOLD, 18));
+//		lblNewLabel_1_3.setBounds(115, 133, 61, 16);
+//		panel.add(lblNewLabel_1_3);
+//		
+//		JLabel lblNewLabel_2_3 = new JLabel("New label");
+//		lblNewLabel_2_3.setFont(new Font("Arial", Font.BOLD, 18));
+//		lblNewLabel_2_3.setBounds(175, 133, 109, 16);
+//		panel.add(lblNewLabel_2_3);
 	}
 }

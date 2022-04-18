@@ -19,26 +19,29 @@ public class SelectMonthYear extends JFrame implements ActionListener{
 	public SelectMonthYear(String username, int client_id) {
 		try {
 			Connect c2 = new Connect();
-			String s2 = "SELECT COUNT(DISTINCT Month, Year) FROM `clients` WHERE Unit_Consumed != \"NULL\" AND Read_by != \"NULL\"";
+//			String s2 = "SELECT COUNT(DISTINCT Month, Year) FROM `clients` WHERE Unit_Consumed != \"NULL\" AND Read_by != \"NULL\"";
+			String s2 = "SELECT COUNT(DISTINCT Month, Year) from clients where Unit_Consumed !=\"NULL\" AND client_id = '"+client_id+"'AND Read_by != \"NULL\"";
 			ResultSet rs1 = c2.s.executeQuery(s2);
 			while (rs1.next()) {
 	        	arraySize = rs1.getInt("COUNT(DISTINCT Month, Year)");
+//				arraySize = rs1.getInt("COUNT(Month)");
 	        }
-	        System.out.println("asdasd= "+arraySize);
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
 		client_idd = client_id;
 		usernamee = username;
+		System.out.println("Arraysize "+arraySize);
 	
-		
+		System.out.println(username);
+		System.out.println(client_id);
 		selectedMonths = new String[arraySize];
 		selectedYears = new String[arraySize];
 		
 		try {
 			int i =0;
 			Connect c2 = new Connect();
-			String s2 = "SELECT DISTINCT Month, Year FROM `clients` WHERE Unit_Consumed != \"NULL\" AND Read_by != \"NULL\" AND client_id = \"1\"";
+			String s2 = "SELECT DISTINCT Month, Year FROM `clients` WHERE Unit_Consumed != \"NULL\" AND Read_by != \"NULL\" AND client_id = '"+client_idd+"'";
 			ResultSet rs1 = c2.s.executeQuery(s2);
 			while (rs1.next()) {
 //	        	arraySize = rs1.getInt("COUNT(DISTINCT Month, Year)");
@@ -46,7 +49,6 @@ public class SelectMonthYear extends JFrame implements ActionListener{
 				selectedYears[i]=rs1.getString("Year");
 	        	i++;
 	        }
-//	        System.out.println("asdasd= "+selectedMonths[0]);
 			
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -59,9 +61,6 @@ public class SelectMonthYear extends JFrame implements ActionListener{
 		comboYear.setBounds(100, 150,90,20); 
 		add(comboYear);
 		
-//		for (int i =0;i<1;i++) {
-//			selectMonths
-//		}
 		
         b1 = new JButton("Next");
         b1.setBounds(250, 400, 100 ,30);
@@ -101,7 +100,7 @@ public class SelectMonthYear extends JFrame implements ActionListener{
 		
 	}
 	public static void main(String[] args) {
-		new SelectMonthYear("p",1).setVisible(true);
+		new SelectMonthYear("b",2).setVisible(true);
 
 	}
 

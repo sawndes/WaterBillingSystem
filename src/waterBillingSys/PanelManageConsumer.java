@@ -18,7 +18,8 @@ public class PanelManageConsumer extends JPanel {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2,textField_3,textField_4;
-
+    String months[] ={"Jan", "Feb", "March", "April","May","Jun","July","Aug","Sep","Oct","Nov","Dec",};
+    String years[] = {"2022","2023"};
 	/**
 	 * Create the panel.
 	 */
@@ -95,8 +96,13 @@ public class PanelManageConsumer extends JPanel {
 	                String name = textField.getText();
 	                String username = textField_2.getText();
 	                String address = textField_3.getText();
-	            	String a = "Insert into clients(client_id,name,username,address,month,year)  values('"+userid+"','"+name+"', '"+username+"', '"+address+"','Jan','2022')";
-	                c1.s.executeUpdate(a);
+	                for (int i=0; i<12;i++){
+	                  	 for (int j =0;j<2;j++) {
+	                    	String a = "Insert into clients(client_id,name,username,address,month,year)  values('"+userid+"','"+name+"', '"+username+"', '"+address+"','"+months[i]+"','"+years[j]+"')";
+//	                    	System.out.println(a);
+	                       c1.s.executeUpdate(a);
+	                  	 }
+	                   }
 					 JOptionPane.showMessageDialog(null, "Client Added Successfully");
 		             setVisible(false);
 		             new SuperAdminFrame().setVisible(true);

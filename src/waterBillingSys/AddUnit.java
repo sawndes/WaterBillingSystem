@@ -39,6 +39,7 @@ public class AddUnit extends JFrame implements ActionListener {
 		}
 		clientId = uid;
 		meterReaderusername = mrusername;
+		System.out.println("From Add unit"+meterReaderusername);
 		
 		l1 = new JLabel("Enter Consumed Unit of " +name+ ":");
         l1.setBounds(50,160,400,30);
@@ -97,7 +98,8 @@ public class AddUnit extends JFrame implements ActionListener {
                  System.out.println("Sucessful");
                  System.out.println(clientId);
                  this.dispose();
-                 new MeterReaderPanel().setVisible(true);
+//                 new MeterReaderPanel().setVisible(true);
+                 new MeterReaderFrame().setVisible(true);
                  
                  
 			} catch (SQLException e1) {

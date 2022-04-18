@@ -21,7 +21,7 @@ public class AddUser extends JFrame implements ActionListener {
     private JButton b1;
     private int idd;
     String months[] ={"Jan", "Feb", "March", "April","May","Jun","July","Aug","Sep","Oct","Nov","Dec",};
-    String years[] = {"2022","2023","2024","2025","2026","2027","2028","2029","2030","2031","2032","2033"};
+    String years[] = {"2022","2023"};
 	AddUser() {
 	  super("Add Consumer");
 	  
@@ -116,8 +116,15 @@ public class AddUser extends JFrame implements ActionListener {
                 String name = t1.getText();
                 String username = t2.getText();
                 String address = t3.getText();
-            	String a = "Insert into clients(client_id,name,username,address,month,year)  values('"+userid+"','"+name+"', '"+username+"', '"+address+"','Jan','2022')";
-                c1.s.executeUpdate(a);
+                for (int i=0; i<12;i++){
+               	 for (int j =0;j<2;j++) {
+                 	String a = "Insert into clients(client_id,name,username,address,month,year)  values('"+userid+"','"+name+"', '"+username+"', '"+address+"','"+months[i]+"','"+years[j]+"')";
+//                 	System.out.println(a);
+                    c1.s.executeUpdate(a);
+               	 }
+                }
+//            	String a = "Insert into clients(client_id,name,username,address,month,year)  values('"+userid+"','"+name+"', '"+username+"', '"+address+"','Jan','2022')";
+//                c1.s.executeUpdate(a);
                 
             } catch (SQLException ex) {
             	JOptionPane.showMessageDialog(null, ex);

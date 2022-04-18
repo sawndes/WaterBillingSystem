@@ -2,13 +2,11 @@ package waterBillingSys;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import java.awt.Component;
-
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
@@ -16,6 +14,8 @@ import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
+
 import javax.swing.SwingConstants;
 
 public class AdminFrame extends JFrame {
@@ -26,7 +26,8 @@ public class AdminFrame extends JFrame {
 	private PanelAdminProfile panelAdminProfile;
 	private PanelAdminChange panelAdminChange;
 	private PanelAdminCollect panelAdminCollect;
-	
+	public static String name,userid,username;
+	public static String xx;
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -57,7 +58,30 @@ public class AdminFrame extends JFrame {
 		panel.setBounds(0, 0, 214, 492);
 		Main.add(panel);
 		panel.setLayout(null);
-		
+		xx = "x";
+		try {
+			Connect c1 = new Connect();
+			String s2 = "SELECT * FROM logincheck ORDER BY No DESC LIMIT 1";
+            ResultSet rs1  = c1.s.executeQuery(s2);
+            while(rs1.next()){
+            	username = rs1.getString("username");
+            }
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println(username);
+		try {
+			Connect c1 = new Connect();
+			String s2 = "SELECT user_id,name FROM admin where username='"+username+"'";
+            ResultSet rs1  = c1.s.executeQuery(s2);
+            while(rs1.next()){
+            	userid = rs1.getString("user_id");
+            	name = rs1.getString("name");
+            }
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println(userid);
 		panelAdminProfile = new PanelAdminProfile();
 		panelAdminChange = new PanelAdminChange();
 		panelAdminCollect = new PanelAdminCollect();

@@ -37,6 +37,7 @@ public class MeterReaderFrame extends JFrame {
 	private PanelProfile panelProfile;
 	private PanelChange panelChange;
 	private PanelViewConsumer panelViewConsumer;
+	public static String mrname,mruserid;
 	
 	/**
 	 * Launch the application.
@@ -96,6 +97,19 @@ public class MeterReaderFrame extends JFrame {
         }catch (Exception e) {
         	e.printStackTrace();
         }
+        
+		try {
+			Connect c1 = new Connect();
+			String s2 = "SELECT user_id,name FROM meter_reader where username='"+mrusername+"'";
+            ResultSet rs1  = c1.s.executeQuery(s2);
+            while(rs1.next()){
+            	mruserid = rs1.getString("user_id");
+            	mrname = rs1.getString("name");
+            }
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println(mrusername);
 		
 		panelProfile = new PanelProfile();
 		panelChange = new PanelChange();
@@ -210,6 +224,7 @@ public class MeterReaderFrame extends JFrame {
 			public void mouseClicked(MouseEvent arg0) {
 				if(JOptionPane.showConfirmDialog(null, "Are you sure that you want close this application?", "Confrimation", JOptionPane.YES_NO_OPTION) == 0) {
 					MeterReaderFrame.this.dispose();
+					
 				}
 				
 			}

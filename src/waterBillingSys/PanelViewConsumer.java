@@ -80,7 +80,7 @@ public class PanelViewConsumer extends JPanel {
 //			        	 }
 //			         }
 					System.out.println(uidd);
-					new AddUnit(uidd, mrusername).setVisible(true);
+					new AddUnit(uidd, MeterReaderFrame.mrusername).setVisible(true);
 					
 					}catch (SQLException ex) {
 			        	JOptionPane.showMessageDialog(null, ex);
