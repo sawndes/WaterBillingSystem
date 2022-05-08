@@ -29,7 +29,7 @@ public class Connect{
 //     ResultSetMetaData rsmetadata = rs.getMetaData();
      if (!rs.next()) {
      	// Super Admin Login Credentials
-         s.executeUpdate("INSERT INTO Login(user_id,name,username, pass, Role) VALUES(1,'Super','sadmin','admin','Super Admin')");
+         s.executeUpdate("INSERT INTO Login(user_id,name,username, pass, Role) VALUES(1,'Super','sadmin',md5('admin'),'Super Admin')");
      }
   // Create table
      s.executeUpdate("Create Table if not exists meter_reader(user_id int(100) AUTO_INCREMENT, name varchar(200),username varchar(150),location varchar(150),PRIMARY KEY(user_id), FOREIGN KEY (user_id) REFERENCES Login(user_id))");

@@ -95,7 +95,7 @@ public class PanelManageAdmin extends JPanel {
 					String name = textField.getText();
 					String username =textField_1.getText();
 					String password = passwordField.getText();
-					String q = "INSERT INTO `login`(`name`,`username`, `pass`, `Role`) VALUES ('"+name+"','"+username+"','"+password+"','Admin')";
+					String q = "INSERT INTO `login`(`name`,`username`, `pass`, `Role`) VALUES ('"+name+"','"+username+"',md5('"+password+"'),'Admin')";
 					String s = "INSERT INTO `admin`(`user_id`,`username`,`name`) VALUES ('"+uid+"','"+username+"','"+name+"')";
 					c1.s.executeUpdate(q);
 
