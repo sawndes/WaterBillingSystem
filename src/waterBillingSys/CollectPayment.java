@@ -104,7 +104,7 @@ CollectPayment(String username) {
 //			int client_id = Integer.parseInt(inp);
 			String username =t1.getModel().getValueAt(client_id, 2).toString();
 			System.out.println(username);
-			new SelectMonthYear(username,client_id+1).setVisible(true);
+//			new SelectMonthYear(username,client_id+1).setVisible(true);
 		}
 		
 	}

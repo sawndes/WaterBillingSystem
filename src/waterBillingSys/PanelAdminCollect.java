@@ -71,10 +71,12 @@ public class PanelAdminCollect extends JPanel {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				String inp = textField.getText();
-				int client_id = Integer.parseInt(inp) -1 ;
-				String username =t1.getModel().getValueAt(client_id, 2).toString();
-				System.out.println(username);
-				new SelectMonthYear(username,client_id+1).setVisible(true);
+				int client_id = Integer.parseInt(inp);
+			
+//				int client_id = Integer.parseInt(inp) -1 ;
+//				String username =t1.getModel().getValueAt(client_id, 2).toString();
+				System.out.println("xxx"+client_id);
+				new SelectMonthYear(client_id).setVisible(true);
 
 			}
 		});

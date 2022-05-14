@@ -16,7 +16,7 @@ public class SelectMonthYear extends JFrame implements ActionListener{
 	String usernamee;
 	JComboBox comboMonth,comboYear;
 
-	public SelectMonthYear(String username, int client_id) {
+	public SelectMonthYear(int client_id) {
 		try {
 			Connect c2 = new Connect();
 //			String s2 = "SELECT COUNT(DISTINCT Month, Year) FROM `clients` WHERE Unit_Consumed != \"NULL\" AND Read_by != \"NULL\"";
@@ -29,11 +29,22 @@ public class SelectMonthYear extends JFrame implements ActionListener{
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
+		try {
+			Connect c2 = new Connect();
+//			String s2 = "SELECT COUNT(DISTINCT Month, Year) from clients where Unit_Consumed !=\"NULL\" AND client_id = '"+client_id+"'AND Read_by != \"NULL\"";
+			String s2 = "SELECT DISTINCT username FROM `clients` WHERE client_id='"+client_id+"'";
+			ResultSet rs1 = c2.s.executeQuery(s2);
+			while (rs1.next()) {
+	        	usernamee = rs1.getString("username");
+//				arraySize = rs1.getInt("COUNT(Month)");
+	        }
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 		client_idd = client_id;
-		usernamee = username;
 		System.out.println("Arraysize "+arraySize);
 	
-		System.out.println(username);
+		System.out.println(usernamee+ " HHHHHH");
 		System.out.println(client_id);
 		selectedMonths = new String[arraySize];
 		selectedYears = new String[arraySize];
@@ -100,7 +111,7 @@ public class SelectMonthYear extends JFrame implements ActionListener{
 		
 	}
 	public static void main(String[] args) {
-		new SelectMonthYear("b",2).setVisible(true);
+		new SelectMonthYear(12).setVisible(true);
 
 	}
 
