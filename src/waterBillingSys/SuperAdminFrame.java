@@ -151,6 +151,7 @@ public class SuperAdminFrame extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				
 				if(JOptionPane.showConfirmDialog(null,"Are you sure you want to sign out?") == 0) {
+//					container.dispose();
 					LoginFrame loginFrame = new LoginFrame();
 					loginFrame.setVisible(true);
 					SuperAdminFrame.this.dispose();

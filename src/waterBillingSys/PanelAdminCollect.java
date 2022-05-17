@@ -77,6 +77,24 @@ public class PanelAdminCollect extends JPanel {
 //				String username =t1.getModel().getValueAt(client_id, 2).toString();
 				System.out.println("xxx"+client_id);
 				new SelectMonthYear(client_id).setVisible(true);
+//				new PanelDate(client_id).setVisible(true);
+
+			}
+		});
+		
+		JButton btnNewButton1 = new JButton("Check Your Paid Time and Amount");
+		btnNewButton1.setBounds(178, 350, 250, 29);
+		add(btnNewButton1);
+		btnNewButton1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				String inp = textField.getText();
+				int client_id = Integer.parseInt(inp);
+			
+//				int client_id = Integer.parseInt(inp) -1 ;
+//				String username =t1.getModel().getValueAt(client_id, 2).toString();
+				System.out.println("xxx"+client_id);
+				new ViewPaid(client_id).setVisible(true);
+//				new PanelDate(client_id).setVisible(true);
 
 			}
 		});
