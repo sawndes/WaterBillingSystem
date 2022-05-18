@@ -154,7 +154,8 @@ public class SuperAdminFrame extends JFrame {
 //					container.dispose();
 					LoginFrame loginFrame = new LoginFrame();
 					loginFrame.setVisible(true);
-					SuperAdminFrame.this.dispose();
+//					SuperAdminFrame.this.dispose();
+					System.exit(0);
 				}
 			}
 		});
@@ -208,6 +209,7 @@ public class SuperAdminFrame extends JFrame {
 			public void mouseClicked(MouseEvent arg0) {
 				if(JOptionPane.showConfirmDialog(null, "Are you sure that you want close this application?", "Confrimation", JOptionPane.YES_NO_OPTION) == 0) {
 					SuperAdminFrame.this.dispose();
+					
 				}
 				
 			}

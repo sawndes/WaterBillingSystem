@@ -104,6 +104,7 @@ public class PanelManageReader extends JPanel {
 		btncreate.setBounds(143, 422, 283, 29);
 		add(btncreate);
 		btncreate.addActionListener(new ActionListener() {
+			 
 			public void actionPerformed(ActionEvent ae) {
 				try {
 					int uid = idd+1;
@@ -118,8 +119,13 @@ public class PanelManageReader extends JPanel {
 					c1.s.executeUpdate(s);
 					
 					 JOptionPane.showMessageDialog(null, "Meter Reader Added Successfully");
-		             setVisible(false);
+//		             setVisible(false);
+					
+					 
+		             
 		             new SuperAdminFrame().setVisible(true);
+		             setVisible(false);
+//		             System.exit(0);
 				} catch (SQLException e1) {
 					 JOptionPane.showMessageDialog(null, e1);
 		             setVisible(false);

@@ -82,8 +82,8 @@ public class Khalti extends JFrame {
 		lblNewLabel_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				Khalti.this.dispose();
 				
-				System.exit(0);
 			}
 		});
 		lblNewLabel_3.setFont(new Font("Apple Braille", Font.BOLD, 16));

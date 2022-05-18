@@ -177,6 +177,7 @@ public class MeterReaderFrame extends JFrame {
 					LoginFrame loginFrame = new LoginFrame();
 					loginFrame.setVisible(true);
 					MeterReaderFrame.this.dispose();
+					System.exit(0);
 				}
 			}
 		});

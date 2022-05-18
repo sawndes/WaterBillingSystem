@@ -82,7 +82,7 @@ public class Bank extends JFrame {
 		lblNewLabel_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.exit(0);
+				Bank.this.dispose();
 			}
 		});
 		lblNewLabel_3.setFont(new Font("Apple Braille", Font.BOLD, 16));

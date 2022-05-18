@@ -102,6 +102,7 @@ public class PanelManageAdmin extends JPanel {
 					c1.s.executeUpdate(s);
 					 JOptionPane.showMessageDialog(null, "Admin Account Added Successfully");
 		             setVisible(false);
+					 
 		             new SuperAdminFrame().setVisible(true);
 				} catch (SQLException e1) {
 					 JOptionPane.showMessageDialog(null, e1);

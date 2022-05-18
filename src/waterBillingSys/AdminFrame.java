@@ -147,7 +147,7 @@ public class AdminFrame extends JFrame {
 				if(JOptionPane.showConfirmDialog(null,"Are you sure you want to sign out?") == 0) {
 					LoginFrame loginFrame = new LoginFrame();
 					loginFrame.setVisible(true);
-					AdminFrame.this.dispose();
+					System.exit(0);
 				}
 			}
 		});
