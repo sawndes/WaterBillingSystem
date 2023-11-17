@@ -43,13 +43,10 @@ public class PanelViewConsumer extends JPanel {
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-//		table = new JTable();
 		 JScrollPane sp = new JScrollPane(t1);
 	        sp.setBounds(23,31,516,250);
 	        add(sp);
-//		table.setBounds(23, 31, 516, 310);
-//		add(table);
-		
+
 		JLabel lblNewLabel = new JLabel("Enter client id to add unit: ");
 		lblNewLabel.setBounds(23, 310, 160, 16);
 		add(lblNewLabel);
@@ -68,21 +65,22 @@ public class PanelViewConsumer extends JPanel {
 					String uid = textField.getText();
 					int uidd = Integer.parseInt(uid);
 					Connect c1 = new Connect();
-			         for (int i=0; i<12;i++){
-			        	 for (int j =0;j<2;j++) {
-			        		 if ((months[i]=="Jan" && years[j] == "2022") || (months[i]=="Jan" && years[j] == "2023")) {
-			        			 continue;
-			        		 }
-			        		 else {
-			        			 String a = "Insert into clients(client_id,name,username,address,month,year)  values('"+uid+"','"+conname+"', '"+conusername+"', '"+conaddress+"','"+months[i]+"','"+years[j]+"')";
-			         			String b = "Update clients set client_id = '"+uid+"' WHERE name = '"+conname+"' AND username='"+conusername+"'";
-			                     c1.s.executeUpdate(a);
-			                     c1.s.executeUpdate(b);
-			        		 }
-			        		 
-			        	 }
-			         }
-					new AddUnit(uidd, mrusername).setVisible(true);
+//			         for (int i=0; i<12;i++){
+//			        	 for (int j =0;j<2;j++) {
+//			        		 if ((months[i]=="Jan" && years[j] == "2022") || (months[i]=="Jan" && years[j] == "2023")) {
+//			        			 continue;
+//			        		 }
+//			        		 else {
+//			        			 String a = "Insert into clients(client_id,name,username,address,month,year)  values('"+uid+"','"+conname+"', '"+conusername+"', '"+conaddress+"','"+months[i]+"','"+years[j]+"')";
+//			         			String b = "Update clients set client_id = '"+uid+"' WHERE name = '"+conname+"' AND username='"+conusername+"'";
+//			                     c1.s.executeUpdate(a);
+//			                     c1.s.executeUpdate(b);
+//			        		 }
+//			        		 
+//			        	 }
+//			         }
+					System.out.println(uidd);
+					new AddUnit(uidd, MeterReaderFrame.mrusername).setVisible(true);
 					
 					}catch (SQLException ex) {
 			        	JOptionPane.showMessageDialog(null, ex);

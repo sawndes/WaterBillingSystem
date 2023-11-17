@@ -192,12 +192,12 @@ public class LoginFrame extends JFrame {
 	                 String role = (String) comboBox.getSelectedItem();
 	                 System.out.println(role);
 	                 if (role == "Super Admin") {
-	                     String q = "select * from login where username='" + u + "' and pass='" + v + "' and role = '"+ "Super Admin" +"'";
+	                     String q = "select * from login where username='" + u + "' and pass=md5('" + v + "') and role = '"+ "Super Admin" +"'";
 //	                	 String q = "select * from login where username='" + u + "' and pass='" + v + "'";
 	                     ResultSet rs = c1.s.executeQuery(q);
 	                     if (rs.next()) {
 	                    	 LoginFrame.this.dispose();
-	                             new SuperAdminPanel().setVisible(true);
+	                             new SuperAdminFrame().setVisible(true);
 	                             System.out.println("Sucessful");  
 
 	                         
@@ -208,12 +208,12 @@ public class LoginFrame extends JFrame {
 	                         }
 	                 }
 	                 else if (role == "Admin") {
-	                	 String q = "select * from login where username='" + u + "' and pass='" + v + "'and role = '"+ "Admin" +"'";
+	                	 String q = "select * from login where username='" + u + "' and pass=md5('" + v + "')and role = '"+ "Admin" +"'";
 	                     ResultSet rs = c1.s.executeQuery(q);
 	                     if (rs.next()) {
 	                    	 c1.s.execute("INSERT INTO `logincheck`(`username`, `role`) VALUES ('"+u+"','"+comboBox.getSelectedItem()+"')");
 	                    	 LoginFrame.this.dispose();
-	                             new AdminPanel().setVisible(true);
+	                             new AdminFrame().setVisible(true);
 	                             System.out.println("Sucessful");  
 
 	                         
@@ -224,7 +224,7 @@ public class LoginFrame extends JFrame {
 	                         }
 	                 }
 	                 else if (role == "Meter Reader") {
-	                	 String q = "select * from login where username='" + u + "' and pass='" + v + "' and role = '"+ "Meter Reader" + "'";
+	                	 String q = "select * from login where username='" + u + "' and pass=md5('" + v + "') and role = '"+ "Meter Reader" + "'";
 	                     ResultSet rs = c1.s.executeQuery(q);
 	                     if (rs.next()) {
 	                    	 c1.s.execute("INSERT INTO `logincheck`(`username`, `role`) VALUES ('"+u+"','"+comboBox.getSelectedItem()+"')");
